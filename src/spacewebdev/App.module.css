@@ -1,0 +1,71 @@
+:root {
+    --smile-size: 300px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.parent {
+    /*transform-style: preserve-3d;*/
+    background-color: rgba(100, 149, 237, 0.33);
+    width: 800px;
+    height: 800px;
+
+    /*transform: rotateX(60deg) rotateZ(45deg);*/
+}
+
+.smile {
+    position: absolute;
+    width: var(--smile-size);
+    height: var(--smile-size);
+    border-radius: 50%;
+    background-color: yellow;
+    z-index: 25;
+    left: calc(50% - var(--smile-size) / 2);
+    top: calc(50% - var(--smile-size) / 2);
+
+    outline: 2px solid green;
+
+    transform-origin: center;
+    perspective-origin: top right;
+    transition: all, 1s, linear, 1s;
+}
+
+
+.smile:hover {
+    background-color: red;
+}
+
+.isAnimated {
+    animation-name: animate;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
+.isAnimated:hover {
+    animation-name: animate, hiEffect;
+    animation-duration: 7s, 0.25s;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, 1;
+    animation-fill-mode: none, forwards;
+    animation-play-state: paused, running;
+}
+
+@keyframes animate {
+    0% {
+        left: 110%
+    }
+    100% {
+        left: -30%
+    }
+}
+
+@keyframes hiEffect {
+    to {
+        transform: rotate(30deg) scale(1.1) translate(7%, -12%);
+    }
+}
