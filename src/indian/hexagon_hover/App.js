@@ -4,16 +4,16 @@ import {useRef} from "react";
 const array = [...Array(20).keys()];
 
 export const App = () => {
-    const cursor = useRef(null);
+    const cursor = useRef(null)
 
-    window.onmousemove = (e) => {
+    const onMouse = (e) => {
         cursor.current.style.left = e.clientX + "px";
         cursor.current.style.top = e.clientY + "px";
     };
 
     return (
         <>
-            <div className={styles.container}>
+            <div className={styles.container} onMouseMove={onMouse} onMouseEnter={onMouse}>
                 {
                     array.map((elem, index) =>
                         <div key={index} className={styles.row}>
@@ -25,8 +25,8 @@ export const App = () => {
                         </div>
                     )
                 }
+                <div className={styles.cursor} ref={cursor}/>
             </div>
-            <div ref={cursor}/>
         </>
     );
 };
