@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {App} from './indian/scrolling_text/App';
+import {App} from './indian/rain/App';
 import {CssBaseline} from "@material-ui/core";
 
 ReactDOM.render(
